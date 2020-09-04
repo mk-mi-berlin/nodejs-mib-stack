@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="teaserbox1_heading"><%=teaserbox3.data.titel[0].text%></h1>
+    <div class="teaserbox1_wrap">
+    <div class="row">
+    	<% teaserbox3.data.body.forEach(function(el, index) { %>
+      <div class="teaserbox1_tile col-4">
+        <figure>
+          <img src="<%=teaserbox3.data.body[index].primary.box_icon.url%>"%>alt="Icon"/>
+
+        </figure>
+        <h3><%=teaserbox3.data.body[index].primary.boxtitel[0].text%></h3>
+        <div class="teaserbox1_teasertext">
+          <p><%=teaserbox3.data.body[index].primary.box_teasertext[0].text%></p>
+        </div>
+        <a href="#" data-toggle="collapse" data-target="#collapseTarget<%=index%>" aira-controls="collapseTarget<%=index%>"> <span >MEHR LESEN&nbsp;&nbsp;</span><span>^^^</span></a><br/><br/>
+        <div class="teaserbox1_additionaltext collapse" id="collapseTarget<%=index%>">
+          <p><%=teaserbox3.data.body[index].primary.box_additionaltext[0].text%></p>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>

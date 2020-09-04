@@ -1,0 +1,32 @@
+<!-- views/ticket_processed.ejs -->
+
+<!DOCTYPE html>
+<html lang="de">
+<% include partials/head.ejs  %>
+<body class="ticketpage">
+<!--%include partials/header.ejs %-->
+
+    <cript type='text/javascript' src='http://code.jquery.com/jquery.min.js'/>
+    <script type='text/javascript'>
+        jQuery.ajax({
+            type: "POST",
+            url: 'http://localhost:8000/ticket_ajax.php',
+            dataType: 'json',
+            data: {functionname: 'ticket_create', title: '<%=title%>}', ticket_queueid: <%=ticket_queueid%>, ticket_text: '<%=ticket_text%>'},
+            success: function(obj) {
+                alert(JSON.stringify(obj));
+                var strobj = JSON.stringify(obj);
+                $('#status').text( strobj);
+
+            }
+            })
+        </script>
+        
+    
+    
+    <br/><br/><br/>
+
+    <p><%=title%> / <%=ticket_queueid%> / <%=ticket_text%> /  /</p>
+    
+    <p id ="status" name="status">xxx</p>
+    

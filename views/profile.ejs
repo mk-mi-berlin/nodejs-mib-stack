@@ -1,0 +1,22 @@
+<!-- views/profile.ejs -->
+
+<!DOCTYPE html>
+<html lang="de">
+<% include partials/head.ejs  %>
+<body class="profile" data-wio-id="<%=pageContent.id%>">
+    
+
+<%include partials/header.ejs %>
+<main>
+<h1>PROFILE <%=pageContent.id%></h1>
+<% var message = message%>
+    <h3>message: <%=message%></h3>
+<h2>USER <%=user.username%></h2>
+
+</main>
+<footer>
+   
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- views/hompage.ejs -->
+
+<!DOCTYPE html>
+<html lang="de">
+<% include partials/head.ejs  %>
+<body class="homepage" data-wio-id="<%=pageContent.id%>">
+    
+
+<%include partials/heade                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <form action="/login" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+    </form>
+    </div>
+    <div class="container">
+    <% pageContent.data.page_content.forEach(function(slice) { 
+        switch(slice.slice_type) { 
+            case 'text_section':%> <%include partials/text-section.ejs%>
+            <%break;%>
+            <%case 'quote':%> <%include partials/quote.ejs%><%break;%>
+            <%case 'full_width_image':%> <%include partials/full-width-image.ejs%><%break;%>
+            <%case 'image_gallery':%> <%include partials/image-gallery.ejs%><%break;%>
+            <%case 'image_highlight':%> <%include partials/image-highlight.ejs%><%break;%>
+         
+    <% }}); %>
+    </div>
+    <hr/>
+    <div class="container">
+        <div id="form"></div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#form").alpaca({
+                    "data": {
+                        "name": "Diego Maradona",
+                        "feedback": "Very impressive.",
+                        "ranking": "excellent"
+                    },
+                    "schema": {
+                        "title":"User Feedback",
+                        "description":"What do you think about Alpaca?",
+                        "type":"object",
+                        "properties": {
+                            "name": {
+                                "type":"string",
+                                "title":"Name",
+                                "required":true
+                            },
+                            "feedback": {
+                                "type":"string",
+                                "title":"Feedback"
+                            },
+                            "ranking": {
+                                "type":"string",
+                                "title":"Ranking",
+                                "enum":['excellent','ok','so so'],
+                                "required":true
+                            }
+                        }
+                    },
+                    "options": {
+                        "form":{
+                            "attributes":{
+                                "action":"http://httpbin.org/post",
+                                "method":"post"
+                            },
+                            "buttons":{
+                                "submit":{}
+                            }
+                        },
+                        "helper": "Tell us what you think about Alpaca!",
+                        "fields": {
+                            "name": {
+                                "size": 20,
+                                "helper": "Please enter your name."
+                            },
+                            "feedback" : {
+                                "type": "textarea",
+                                "name": "your_feedback",
+                                "rows": 5,
+                                "cols": 40,
+                                "helper": "Please enter your feedback."
+                            },
+                            "ranking": {
+                                "type": "select",
+                                "helper": "Select your ranking.",
+                                "optionLabels": ["Awesome!",
+                                    "It's Ok",
+                                    "Hmm..."]
+                            }
+                        }
+                    },
+                    "view" : "bootstrap-edit"
+                });
+            });
+        </script>
+    </div>
+</main>
+<footer>
+   
+</footer>
+
+</body>
+</html>

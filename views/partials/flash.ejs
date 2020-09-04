@@ -1,0 +1,18 @@
+
+	
+	<%if(messages.errors) {%>
+	<div class="alert alert-success" role="alert"><span>
+		<%=messages.errors[0].msg  %>	
+	</span></div>
+	<%}%>
+	<%if(messages.success) {%>
+	<div class="alert alert-success" role="alert"><span>
+		<%= messages.success[0].msg %>
+	</span></div>
+	<%}%>
+	<%if(messages.info) {%>
+	<div class="alert alert-success" role="alert"><span>
+		<%=messages.info[0].msg  %>
+	</span></div>
+	<%}%>
+

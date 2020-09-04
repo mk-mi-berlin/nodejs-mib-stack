@@ -1,0 +1,21 @@
+TODO:
+
+Nodestack:
+- Dockerisierung mit docker-compose
+  - Nodestack, MongoDB, nginx + php-fpm, Autotask PHP
+- Usermanagement & Profile
+- Forms
+- Mail
+- hackathon starter mergen
+- CSS / Views
+Maps:
+- myprtg, meraki, autotask, ..
+
+Prismic:
+- Prismic Custom Types + Slices
+  - Text mit Bild, Aufzählungen, Quotes, Punkte, Klapppunkte
+- Rendern der Custom Types, Views
+
+
+Autotask-Schnittstelle:
+- ...

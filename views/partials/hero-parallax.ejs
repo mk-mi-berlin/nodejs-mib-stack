@@ -1,0 +1,18 @@
+<!-- Parallax Hero -->
+<div class="banner" data-type="background" data-speed="3" style="background-image: url(<%=banner.image.url%>);">
+    <div class="banner-content " data-type="content" data-speed="4" style="position: relative;">
+        <div class="banner-title">
+            <%=PrismicDOM.RichText.asHtml(banner.title), ctx.linkResolver, ctx.htmlSerializer)%>
+        </div>
+        <p class="banner-description">
+            <%=PrismicDOM.RichText.asHtml(banner.tagline, ctx.linkResolver, ctx.htmlSerializer)%>
+        </p>
+        <% var buttonLink = PrismicDOM.Link.url(banner.button_link, ctx.linkResolver) %>
+        <% var buttonLabel = PrismicDOM.RichText.asText(banner.button_label) %>
+        <%if(buttonLink && buttonLabel) {%>
+        <a class="banner-button" href="<%=buttonLink%>">
+            <%=buttonLabel%></a>
+        <% } %>
+    </div>
+</div>
+<!-- Parallax Hero -->

@@ -1,0 +1,22 @@
+<div class="copytext_image "> 
+<div class="row" style="background-color: <%=el.primary.background_color%>">
+  <%if(el.primary.icon_position=="Rechts") { %>
+  
+  <div class="col-lg-1"></div>
+  <div class="col-lg-7 col-md-10 col-sm-12 p-5">    
+    <p><%-PrismicDOM.RichText.asHtml(el.primary.rich_text, ctx.linkResolver, ctx.htmlSerializer)%></p>
+  </div>
+  <div class="col-4 my-auto pl-5 d-none d-lg-block">
+    <img src="<%=el.primary.icon_image.medium200.url%>"/>
+  </div>
+  <%} else if(el.primary.icon_position=="Links") { %>
+  <div class="col-1"></div>
+  <div class="col-4 my-auto pl-5 d-none d-lg-block">
+    <img src="<%=el.primary.icon_image.medium200.url%>"/>
+  </div>
+  <div class="col-7 col-md-10 col-sm-12 p-5">   
+    <p><%-PrismicDOM.RichText.asHtml(el.primary.rich_text, ctx.linkResolver, ctx.htmlSerializer)%></p>
+  </div>
+  <%}%>
+</div>
+</div>

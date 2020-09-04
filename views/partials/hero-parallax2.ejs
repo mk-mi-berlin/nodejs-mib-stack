@@ -1,0 +1,28 @@
+<!-- Parallax Hero -->
+
+<div class="banner parallax_picture_hero" 
+    data-type="background" 
+    style="background-image: url(<%=el.primary.image.url%>);"
+    data-speed="3">
+    <div class="banner-content " data-type="content" data-speed="4" style="position: relative;">
+        <h<%=el.primary.titel[0].type.slice(-1)%> class="banner-title">
+             <%-el.primary.titel[0].text%>
+          </h<%=el.primary.titel[0].type.slice(-1)%>>
+        
+        <p class="banner-description">
+            <%=PrismicDOM.RichText.asText(el.primary.rich_overlay_text)%>
+        </p>
+        <% var buttonLink = PrismicDOM.Link.url(el.primary.link, ctx.linkResolver) %>
+
+        <% var buttonLabel =  null %>
+        <%if(buttonLink && buttonLabel) {%>
+        <a class="banner-button" href="<%=buttonLink%>">
+            <%=buttonLabel%></a>
+        <% } %>
+    </div>
+    </div>
+<!-- Parallax Hero -->
+<!--  
+
+
+ -->

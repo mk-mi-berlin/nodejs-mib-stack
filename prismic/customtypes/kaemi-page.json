@@ -1,0 +1,81 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "Page UID"
+      }
+    },
+    "header_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Header Image"
+      }
+    },
+    "header_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "heading1, heading3, strong",
+        "allowTargetBlank" : true,
+        "label" : "Header Text",
+        "placeholder" : "Header Text.."
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "paragraph" : {
+            "type" : "Slice",
+            "fieldset" : "paragraph",
+            "description" : "Paragraph Text with Symbol",
+            "icon" : "art_track",
+            "non-repeat" : {
+              "paragraph_header" : {
+                "type" : "StructuredText",
+                "fieldset" : "Header Title",
+                "config" : {
+                  "multi" : "paragraph, heading1, heading2, heading3, strong, em, hyperlink",
+                  "placeholder" : "Header Title.."
+                }
+              },
+              "paragraph_text" : {
+                "type" : "StructuredText",
+                "fieldset" : "Text",
+                "config" : {
+                  "multi" : "paragraph, heading1, heading2, heading3, strong, em, hyperlink",
+                  "placeholder" : "Paragraph text..."
+                }
+              },
+              "illustration" : {
+                "type" : "Image"
+              }
+            },
+            "repeat" : { }
+          },
+          "bulletlist" : {
+            "type" : "Slice",
+            "fieldset" : "bulletlist",
+            "description" : "List of Bulletpoints",
+            "icon" : "dehaze",
+            "non-repeat" : { },
+            "repeat" : {
+              "bullet_text" : {
+                "type" : "StructuredText",
+                "fieldset" : "Text",
+                "config" : {
+                  "multi" : "paragraph, heading1, heading2, heading3, strong, em, hyperlink",
+                  "placeholder" : "Bulletpoint text..."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+<head>
+  
+    <!-- link rel="stylesheet" href="/css/custom_style_frontier.css" -->
+
+  
+  <!--link rel="stylesheet"  href="/stylesheets/reset.css">
+  <link rel="stylesheet"  href='/stylesheets/common.css'-->
+  <!--link rel="stylesheet"  href="/stylesheets/style.css"-->
+ 
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic'  rel='stylesheet'  type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel='stylesheet'>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+  
+  
+  <script src="//static.cdn.prismic.io/prismic.min.js"> </script>
+  
+  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css">
+ 
+
+
+
+<!--script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+ <link rel="stylesheet"  href="/css/main.css">
+
+ <!--  https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js
+-->
+
+
+
+
+<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+<link type="text/css" href="//code.cloudcms.com/alpaca/1.5.23/bootstrap/alpaca.min.css" rel="stylesheet" />
+
+<script src="/js/bootstrap.js"></script>
+
+<!--
+<link type="text/css" href="/css/bootstrap.css"></link>
+<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+ 
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+-->
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.23/bootstrap/alpaca.min.js"></script>
+    
+  <script> <% var x =  ctx?"window.prismic = { endpoint: '"  + ctx.endpoint + "' };":"" %> 
+    <%- x%>
+  </script>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+
+// scroll functions
+$(window).scroll(function(e) {
+
+    // add/remove class to navbar when scrolling to hide/show
+    var scroll = $(window).scrollTop();
+    if (scroll >= 150) {
+        $('.navbar').addClass("navbar-hide");
+    } else {
+        $('.navbar').removeClass("navbar-hide");
+    }
+
+});
+
+
+          // makes the parallax elements
+function parallaxIt() {
+
+  // create variables
+  var $fwindow = $(window);
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  // on window scroll event
+  $fwindow.on('scroll resize', function() { 
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  }); 
+
+  // for each of content parallax element
+  $('[data-type="content"]').each(function (index, e) {
+    var $contentObj = $(this);
+    var fgOffset = parseInt($contentObj.offset().top);
+    var yPos;
+    var speed = ($contentObj.data('speed') || 1 );
+
+    $fwindow.on('scroll resize', function (){
+      yPos = fgOffset - scrollTop / speed; 
+
+      $contentObj.css('top', yPos);
+    });
+  });
+
+  // for each of background parallax element
+  $('[data-type="background"]').each(function(){
+    var $backgroundObj = $(this);
+    var bgOffset = parseInt($backgroundObj.offset().top);
+    var yPos;
+    var coords;
+    var speed = ($backgroundObj.data('speed') || 0 );
+
+    $fwindow.on('scroll resize', function() {
+      yPos = - ((scrollTop - bgOffset) / speed); 
+      coords = '40% '+ yPos + 'px';
+
+      $backgroundObj.css({ backgroundPosition: coords });
+    }); 
+  }); 
+
+  // triggers winodw scroll for refresh
+  $fwindow.trigger('scroll');
+};
+
+parallaxIt();
+});
+  </script>
+  
+  
+
+  
+  <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"-->
+  
+
+  
+
+
+
+  
+</head>

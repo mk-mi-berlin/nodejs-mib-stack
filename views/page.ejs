@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<% include partials/head.ejs  %>
+<body class="page" data-wio-id="<%=pageContent.id%>">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.js"></script>
+
+<%include partials/headerMenuparts.ejs %>
+
+<main>
+  <section>
+    <%include partials/flash%>
+  </section>
+  	
+
+	<section class="slicesection">	
+	<% var items = pageContent.data.page_content; %>
+	<% items.forEach(function(el, index) { %>
+
+	<% if(false) { %>
+	 	<h1 style="background-color: #722">els.slice_type:<%=el.slice_type%></h1> 
+	 <%}%>
+
+
+	<%if(el.slice_type=='paragraph___OLD') {%>
+
+	<div class="row">
+		<div class="mx-auto" style="display: block;">
+	<h2><%=el.primary.paragraph_header[0].text%> mk2</h2>
+  	<div class="kaemitext" style="display:block;float:left;width: 450px;">	        
+    <%-PrismicDOM.RichText.asHtml(el.primary.paragraph_text, ctx.linkResolver, ctx.htmlSerializer)%>
+  	</div> 
+
+		<img src="<%=el.primary.illustration.url%>" style="float:left;padding-left: 100px"/>
+	</div>
+	</div>
+	<br/>	
+
+
+
+
+
+	<%} else if(el.slice_type=='whitespace') { %>
+		<%include partials/whitespace.ejs %>
+
+	<%} else if(el.slice_type=='partner_collection') { %>
+	<div class="container">
+	<div class="row">
+	<% el.items.forEach(function(partner, i) { %>
+	<div class="col-2 m-4">
+		<a href="<%=partner.url.url%>" target="_blank">
+		<img src="<%=partner.logo.medium215.url%>"/>
+	</div>
+	<%});%>
+	</div>
+	</div>
+    <%} else if(el.slice_type=='parallax_picture_hero') { %>
+      
+        <%include partials/hero-parallax2.ejs %>
+    
+
+
+    
+
+
+
+
+
+      <%} else if(el.slice_type=='feature_boxes') { %>
+      <div class="container">
+
+      	<%include partials/feature_boxes.ejs %>
+
+      </div>
+
+
+
+
+
+
+
+
+
+     <%} else if(el.slice_type=='copytext_3-spaltig') { %>
+      
+     <%include partials/copytext-3col.ejs %>
+
+
+     
+
+
+
+
+	<%} else if(el.slice_type=='copytext') { %>
+	<div class="copytext">
+	<div class="row" style="background-color: <%=el.primary.background_color%>;">
+		<div class="col-1"></div>
+		<div class="col-10 p-4 " >
+
+			<%var thecopytext = el.primary.copytext;%>
+			<p class="text-center"><%-PrismicDOM.RichText.asHtml(thecopytext, ctx.linkResolver, ctx.htmlSerializer)%></p>
+			
+		</div>
+		
+	</div>
+
+
+
+	<%} else if(el.slice_type=='copytext_image') { %>
+		<%include partials/copytext-image.ejs %>
+
+
+	<%} else if(el.slice_type=='copytext_1_icon') { %>
+
+    <div class="copytext_1_icon">
+    <div class="row">
+    	<div class="col-1"></div>
+    	<div class="col-7">
+    		<p><%-PrismicDOM.RichText.asHtml(el.primary.titel, ctx.linkResolver, ctx.htmlSerializer)%></p>
+    		<%-PrismicDOM.RichText.asHtml(el.primary.copytext)%>
+    		<p></p> <!-- ?? -->
+    		<br/>    		
+    	</div>
+    	<div class="col-3">
+    		<img src="<%=el.primary.icon.url%>"/>
+    	</div>
+    	<div class=""></div>
+    </div>
+    </div>
+
+
+
+
+
+
+    
+
+
+    <%} else if(el.slice_type=='bulletlist') { %>
+      <div>
+      <ul>
+      <%el.items.forEach(function(el2, index2) {%>
+        <li style="list-style: none;"><span style="color:#ea6c12;float:left">+</span><span style="padding-left:30px;display:block">
+          <%=el2.bullet_text[0].text%>
+        </span></li>
+        
+      <%});%>
+      </ul>
+      </div>
+      <br/>
+
+
+
+
+
+
+
+
+
+
+    <%} else if(el.slice_type=='rich_text') { %>
+      <div class="rich_text">
+      	<%if(el.primary.title) {%>
+      		<%var size = el.primary.title[0].type.slice(-1);%>
+      		<h<%=size%>><%=el.primary.title[0].text%></h<%=size%>>
+      	<%}%>
+      	<div class="kaemidstext" style="display:block;float:left;">
+      		
+      		<%-PrismicDOM.RichText.asHtml(el.primary.richt_text)%>
+      		
+        </div>
+  	  </div>
+      <br/>
+
+
+
+      
+
+
+    <%} else if(el.slice_type=='quote') { %>
+      <div class="">
+      <figure>
+            <blockquote class="sqs-block-quote">
+              <span>“</span>
+              <%=el.primary.quote[0].text%>
+              <span>”</span>
+            </blockquote>
+            <figcaption class="source">— <%=el.primary.name_of_the_author[0].text%></figcaption>
+          </figure>
+          </div>
+          <br/>
+
+
+
+
+     <%} else if(el.slice_type=='unfiltered_html') { %>
+      	<%include partials/unfiltered-html.ejs %>
+        
+
+
+
+
+
+
+
+          <%} else if(el.slice_type=='logo_slider') { %>
+	      	<div class="logo_slider container">
+	      		<div class="titel">
+	      			<%-PrismicDOM.RichText.asHtml(el.primary.titel, ctx.linkResolver, ctx.htmlSerializer)%>
+	      		</div>
+	      	<div class="my-logo-slider">
+	      		<%el.items.forEach(function(e, i) {%>
+	      		<div class="logo-slide">
+	      			<a href="<%=e.link.url%>">
+	      			<img class="mx-auto d-block" src="<%=e.logo.slider250x88.url%>">
+	      			</a>
+	      		</div>
+	      		<%});%>
+	      	</div>
+	      </div>
+	      	<script>
+		  
+
+		  var logoslider = tns({
+		    container: '.my-logo-slider',
+		    items: 3,
+		    slideBy: 1,
+		    autoplay: true,
+		    controls: false,
+		    nav: false,
+		    autoplayButton: false,
+		    autoplayButtonOutput: false,
+		    responsive: {
+		      40: {
+		        
+		        
+		        items: 1
+		      },
+		      640: {
+		        
+		        
+		        items: 1
+		      },
+		      700: {
+		      	items: 2,
+		        gutter: 30
+		      },
+		      900: {
+		        items: 3
+		      }
+		    }
+		  });
+		</script>
+
+
+
+		<%} else if(el.slice_type=='backgroundimage_slider') { %>
+		<div class="backgroundimage_slider d-block " style="background-image: url(<%=el.primary.backgroundimage.url%>);">
+
+		<div class="my-image-slider ">
+		<%el.items.forEach(function(el2, index2) {%>
+		<div class="slide ">
+			<div class="quote-wrapper">
+			<figure class="">
+	        <blockquote class="sqs-block-quote___ ">
+	        	<p class="mx-auto">
+	          <span>“</span>
+					<%=el.items[index2].quote[0].text%>
+				<span>“</span>
+			</p>
+				</blockquote>
+	        <figcaption class="source"><%=el.items[index2].name%> - <%=el.items[index2].position_company%> 
+	        <div class="row">
+		      	<div class="col-12">
+			        <div class="text-center">
+			           
+			        </div>
+			    </div>
+		    </div>
+		    </figcaption>
+	      </figure>
+	      </div>
+		</div>
+
+		<%});%>
+		</div>
+		</div>
+		<script type="text/javascript">
+			var slider = tns({
+		    container: '.my-image-slider',
+		    items: 1,
+		    slideBy: 'page',
+		    controls: false,
+		    nav: false,
+		    autoplay: true,
+		    autoplayButton: false,
+		    autoplayButtonOutput: false
+		  });
+		</script>
+
+
+          <%} else if(el.slice_type=='quote_slider') { %>
+          
+          	<%include partials/quote-slider.ejs %>
+
+
+
+	<%} else if(el.slice_type=='full-width_image') { %>
+	
+	<%var desktopURL = el.primary.image.Full1280.url%>
+	<%var tabletURL = el.primary.image.tablet900.url%>
+	<%var mobileURL = el.primary.image.mobile400.url%>
+	<div class="full-width_image  h-100">
+	<div class="row h-100  align-items-center w-100">
+		<div class="col-10 justify-content-center  ">
+			<picture class="d-block mx-auto">
+				
+				<source media="(max-width: 576px)" srcset="<%=mobileURL%>">
+				<source media="(max-width: 768px)" srcset="<%=tabletURL%>">
+				<source srcset="<%=desktopURL%>">
+				<img src="<%=el.primary.image.Full1280.url%>" class="" style="width: auto;"/>
+			</picture>
+		</div>
+	</div>
+	</div>
+
+
+    <%} else if(el.slice_type=='quote_slider______OLD') { %>
+    
+      <div class="containerASD">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-rideasd="carousel">
+        <div class="carousel-inner">
+          <%el.items.forEach(function(el3, index3) {%>
+          <%if(index3==1) {%>
+          <div class="carousel-item item active">
+          <%} else {%>
+          <div class="carousel-item item">
+            <%}%>
+            <figure>
+                <blockquote class="sqs-block-quote">
+                  <span>“</span>
+                  <%=el3.quote[0].text%>
+                  <span>”</span>
+                </blockquote>
+                <figcaption class="source">— <%=el3.name_of_the_author[0].text%></figcaption>
+              </figure>
+          </div>
+          <%})%>
+        </div>
+      </div>
+      </div>
+      <br/>
+        
+    
+    <%}%>
+
+<%});%>
+
+</section>
+</div>
+
+<br/>
+
+
+
+
+<section style="margin:50px;background-color: #ddd">
+	<a href="#" data-toggle="collapse" data-target="#collapseTargetDEBUG" aira-controls="collapseTargetDEBUG"> <span >DEBUG&nbsp;&nbsp;</span><span>^^^</span></a><br/><br/>
+        <div class="teaserbox1_additionaltext collapse" id="collapseTargetDEBUG">
+          
+       
+	<h1>page-stringify-section</h1>
+	<div class="container">
+
+	<hr/>
+	<%=JSON.stringify(menu) %>
+	<hr/>
+	<%=JSON.stringify(pageContent.data) %>
+
+	<hr/>
+	<h5>ctx</h5>
+	<%=JSON.stringify(ctx) %>
+
+	<hr/>
+	<h5>linkResolver</h5>
+	<%var linkResolver = linkResolver;%>
+	<%=JSON.stringify(linkResolver) %>
+
+	<hr/>
+	</div>
+	 </div>
+	 
+	</section>
+
+
+
+</main>
+<%include partials/footer.ejs %>
+
+
+
+</body>
+</html>

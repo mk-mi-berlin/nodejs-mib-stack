@@ -1,0 +1,114 @@
+<!-- views/kaemi-page.ejs -->
+
+<!DOCTYPE html>
+<html lang="de">
+<% include partials/head.ejs  %>
+<body class="homepage" data-wio-id="<%=pageContent.id%>">
+
+
+  
+
+<% var header_image = pageContent.data.header_image %>
+<% var header_text = pageContent.data.header_text %>
+
+
+<%include partials/header.ejs %>
+
+
+<section class="">
+<div class="banner" data-type="background" data-speed="3" style="background-image: url(<%=header_image.url%>);">
+
+<div class="banner-content container" data-type="content" data-speed="4" >
+        <h3 class="banner-title"><%=PrismicDOM.RichText.asText(header_text)%></h3>
+        <p class="banner-description">TODO DESCRIPTION</p>
+        
+    </div>
+</div>
+</section>
+
+<br/>
+<main>
+    <%include partials/flash%>
+
+
+    
+<% var items = pageContent.data.body; %>
+<% items.forEach(function(el, index) { %>
+	<%if(el.slice_type=='paragraph') {%>
+
+	<div class="container">
+    <div class="mx-auto" style="display: block;">
+      <h2><%=el.primary.paragraph_header[0].text%> mk2</h2>
+      <div class="kaemitext" style="display:block;float:left;width: 450px;">
+      	<%-PrismicDOM.RichText.asHtml(el.primary.paragraph_text, ctx.linkResolver, ctx.htmlSerializer)%>
+      </div> <img src="<%=el.primary.illustration.url%>" style="float:left;padding-left: 100px"/>
+    </div>
+  	</div>
+  	<br/>
+  	<%} else if(el.slice_type=='bulletlist') { %>
+  		<div class="container">
+  		<ul>
+  		<%el.items.forEach(function(el2, index2) {%>
+  			<li style="list-style: none;"><span style="color:#ea6c12;float:left">+</span><span style="padding-left:30px;display:block">
+  				<%=el2.bullet_text[0].text%>
+  			</span></li>
+  			
+  		<%});%>
+  		</ul>
+  		</div>
+  		<br/>
+  	<%} else if(el.slice_type=='quote') { %>
+  		<div class="container">
+  		<figure>
+            <blockquote class="sqs-block-quote">
+              <span>“</span>
+              <%=el.primary.quote[0].text%>
+              <span>”</span>
+            </blockquote>
+            <figcaption class="source">— <%=el.primary.name_of_the_author[0].text%></figcaption>
+          </figure>
+          </div>
+          <br/>
+    <%} else if(el.slice_type=='quote_slider') { %>
+    
+    	<div class="containerASD">
+    		<div id="carouselExampleSlidesOnly" class="carousel slide" data-rideasd="carousel">
+			  <div class="carousel-inner">
+			  	<%el.items.forEach(function(el3, index3) {%>
+			  	<%if(index3==1) {%>
+			  	<div class="carousel-item item active">
+			  	<%} else {%>
+			    <div class="carousel-item item">
+			    	<%}%>
+			      <figure>
+		          	<blockquote class="sqs-block-quote">
+		              <span>“</span>
+		              <%=el3.quote[0].text%>
+		              <span>”</span>
+		            </blockquote>
+		            <figcaption class="source">— <%=el3.name_of_the_author[0].text%></figcaption>
+		          </figure>
+			    </div>
+			    <%})%>
+			  </div>
+			</div>
+    	</div>
+    	<br/>
+				
+  	
+    <%}%>
+
+<%});%>
+
+<script>
+    //var $jq = jQuery.noConflict();
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+</script>
+
+
+</main>
+<pre><%=JSON.stringify(pageContent)%></pre>
+</body>
+</html>

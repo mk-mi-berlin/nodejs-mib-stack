@@ -1,0 +1,26 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="de">
+<%-include ./partials/head.ejs %>
+<body class="homepage">
+  <%-include ./partials/header4.ejs %>
+    <h1>This is it</h1>
+
+
+
+
+    <hr/>
+    <pre>
+    <%=JSON.stringify(menu3, null, 4) %>
+    </pre>
+    <hr/>
+    <pre>
+  <%=JSON.stringify(pageContent.data,null,4) %>
+   </pre>
+  <hr/>
+  <h5>ctx</h5>
+  <%=JSON.stringify(ctx) %>
+
+  <hr/>
+
+</body>

@@ -1,0 +1,47 @@
+<div class="quote_slider container">
+	<h<%=el.primary.titel[0].type.slice(-1)%> style="text-align: center;">
+		<%-el.primary.titel[0].text%>
+	</h<%=el.primary.titel[0].type.slice(-1)%>>
+		  
+	<div class="my-slider">
+      	<%el.items.forEach(function(el2, index2) {%>
+
+      	<div class="slide">
+  			<figure>
+	            <blockquote class="sqs-block-quote mx-auto my-2">
+	              <div class="quoteblock">
+  					<%=el.items[index2].quote[0].text%>
+  				</div>
+  				</blockquote>
+	            <figcaption class="source my-3"><strong><%=el.items[index2].name%></strong> - <%=el.items[index2].position%> 
+	            <div class="d-flex flex-wrap flex-row justify-content-center">
+	          		<div class="col-10 text-center my-3">
+		        		
+		            	<img class="mx-auto d-block" src="<%=el.items[index2].logo.small_height50.url%>">
+		        		
+		    		</div>
+		    	</div>
+		    	</figcaption>
+	         </figure>		          
+      	</div>
+
+      	<%});%> <!-- foreach slide-->
+
+      	
+     </div>
+		  	
+</div>
+
+<script type="text/javascript">
+	var slider = tns({
+    container: '.my-slider',
+    items: 1,
+    slideBy: 'page',
+    controls: false,
+    nav: false,
+    autoplay: true,
+    autoplayButton: false,
+    autoplayButtonOutput: false
+  });
+</script>
+		

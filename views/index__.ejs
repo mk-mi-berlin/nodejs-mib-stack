@@ -1,0 +1,119 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="de">
+  <% include partials/head.ejs  %>
+  <body class="homepage" data-wio-id="<%=pageContent.id%>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.js"></script>
+
+    <%include partials/headerMenuparts.ejs %>
+    <% var banner = null; // pageContent.data.homepage_banner[0] %>
+    <% var copy2 = null; //pageContent.data %>
+    <main>
+      <section>
+        <%include partials/flash%>
+      </section>
+      
+      <section class="slicesection">
+      <% var items = pageContent.data.page_content; %>
+      <% items.forEach(function(el, index) { %>
+      
+      <%if(el.slice_type=='parallax_picture_hero') {%>
+        <%include partials/hero-parallax2.ejs %>
+
+      <%} else if(el.slice_type=='video_hero') { %>
+        
+         <%include partials/hero-video.ejs %>
+
+
+     <%} else if(el.slice_type=='copytext_3-spaltig') { %>
+        <div class="container">
+        <%include partials/copytext-3col.ejs %>
+        </div>
+
+        <%} else if(el.slice_type=='quote_slider') { %>
+          
+            <%include partials/quote-slider.ejs %>
+
+  <%} else if(el.slice_type=='whitespace') { %>
+      <%include partials/whitespace.ejs %>
+
+      <%} else if(el.slice_type=='copytext_image') { %>
+        <%include partials/copytext-image.ejs %>
+
+      <%} else if(el.slice_type=='unfiltered_html') { %>
+        <%include partials/unfiltered-html.ejs %>
+        
+
+        <%}%>
+      <%});%> <!-- items.foreach -->
+
+
+
+<div class="container-fluid bg-kaemi-grey homepage_aboutus">
+          <div class="d-flex flex-wrap flex-row justify-content-start" >
+            <div class="col-md-7 col-10 bg-kaemi-grey leftcontent">
+              <h2>Über uns</h2>
+              <p>IT war gestern. KAEMI digitalisiert Ihre Geschäftsprozesse und sichert sie in Echtzeit ab.
+Wir sind ein Managed Service Provider. Wir virtualisieren IT-Infrastruktur und Netzwerke
+und binden Operated Technologies und Cloud Services transparent für Sie an.</p>
+              <p>Dazu bündeln wir alle relevanten IT-Leistungen zu einem Paket: von der Sicherheit,
+Installation, Wartung und Pflege laufender IT-Systeme bis hin zu Netzwerkinstallationen,
+Erweiterungen oder VoIP-Telefonie – je nachdem, was Ihr Unternehmen konkret benötigt.</p>
+              <p>Wir beraten Sie auch zur optimalen Prozessorganisation, zur Produktauswahl und zum
+Dienstleistungsumfang – und wir managen Ihr Firmennetzwerk
+24 Stunden pro Tag. 7 Tage die Woche. 365 Tage im Jahr.</p>
+              <a href="/kontakt">TERMIN VEREINBAREN</a>
+            </div>
+            <div class="col-md-5 col-10 bg-kaemi-orange rightcontent">
+              <h2 style="color: white;">Kontakt</h2>
+              <div style="border: 2px dashed white;height: 400px;width:80%;margin-top: 35px;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+     </section> <!-- slicesection -->
+
+
+        
+        
+ 
+
+
+<br/><br/><br/><br/>
+
+<section style="margin:50px;background-color: #ddd">
+<a href="#" data-toggle="collapse" data-target="#collapseTargetDEBUG" aira-controls="collapseTargetDEBUG"> <span >DEBUG&nbsp;&nbsp;</span><span>^^^</span></a><br/><br/>
+        <div class="teaserbox1_additionaltext collapse" id="collapseTargetDEBUG">
+          
+  <h1>page-stringify-section</h1>
+  <div class="container">
+
+  <hr/>
+  <%=JSON.stringify(menu) %>
+  <hr/>
+  <%=JSON.stringify(pageContent.data) %>
+
+  <hr/>
+  <h5>ctx</h5>
+  <%=JSON.stringify(ctx) %>
+
+  <hr/>
+  <h5>linkResolver</h5>
+  <%var linkResolver = linkResolver;%>
+  <%=JSON.stringify(linkResolver) %>
+
+  <hr/>
+  </div>
+</div>
+  </section>
+
+
+
+    </main>
+    <%include partials/footer.ejs %>
+  </body>
+</html>

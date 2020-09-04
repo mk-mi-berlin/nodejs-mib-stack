@@ -1,0 +1,78 @@
+	V2 VERBESSERUNGEN
+
+- no jQuery
+- bilinugal [https://github.com/levimykel/prismic-i18n-example]
+- live browser preview/edit
+- analytics / google / ...
+- backup
+
+https://css-tricks.com/api-based-cms-approach/
+
+- MERAKI API Integrieren (zB wieviel / was MOMENTAN/LIVE online..)
+
+
+- SEO (https://user-guides.prismic.io/en/articles/764589-how-to-prepare-your-content-for-seo)
+---> Google-Crawler Anleiten! (wo/was/was nicht/etc) / Sitemap!!
+---> Content Mark-up (zB Images beschreiben, videos)
+---> Medien optimieren: im Backend automatisch, Templates anpassen / CDN verwenden
+
+- SSO
+--> https://blog.bitsrc.io/using-identity-server-for-multi-tenant-web-applications-c511ffa3e428
+--> https://codeburst.io/building-a-simple-single-sign-on-sso-server-and-solution-from-scratch-in-node-js-ea6ee5fdf340
+--- https://github.com/ankur-anand/simple-sso
+-- https://medium.com/nothing-but-the-objectivetruth/sso-with-gluu-and-moodle-using-saml2-0-b25ad50780a9
+--- https://medium.com/@Sendbird/implementing-single-sign-on-sso-for-a-product-dashboard-a20e90d5630e
+
+
+SECURITY
+https://stackabuse.com/securing-your-node-js-app/
+
+FRONTEND:
+flashmsg
++>
+eyecandy mit JS-Animationen etc.
+
+https://github.com/simontabor/Twitter-bar-Slider
+
+alternative für RFS:
+https://philipwalton.com/articles/responsive-components-a-solution-to-the-container-queries-problem/
+
+
+- Plan medium 125$/m
+--> Backup
+--> User Roles (Admin, Redakteur, ..)
+
+- logging
+
+
+NEXT.JS
+- https://www.heise.de/developer/artikel/Interaktive-Websites-mit-Nuxt-js-fuer-Geschwindigkeit-SEO-und-Social-Media-4516901.html
+- https://github.com/jamespegg/prismic-nuxt
+- https://prismic-nuxt.js.org/
+- https://prismic.io/blog/how-gatsby-and-nextjs-really-work
+
+CDN zb netlify
+
+
+https://developers.google.com/web/updates/2019/02/rendering-on-the-web
+
+https://github.com/GoogleChromeLabs/quicklink
+
+
+
+https://npmaddict.com/
+
+
+
+v3:
+
+https://medium.com/source-group/start-a-new-website-with-gatsby-prismic-cms-netlify-a875455c992
+https://www.freecodecamp.org/news/how-i-built-my-blog-using-gatsby-and-netlify-f921f1a9f33c/
+
+
+
+StrongLoop PM
+
+https://github.com/goldbergyoni/nodebestpractices
+https://github.com/maxogden/art-of-node#the-art-of-node
+>>>>>>> 0c53f5e21dba062d0c0613a46ca88981806cce5e

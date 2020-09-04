@@ -1,0 +1,86 @@
+<!-- views/ticket.ejs -->
+
+<!DOCTYPE html>
+<html lang="de">
+<% include partials/head.ejs  %>
+<body class="ticketpage">
+<%include partials/header.ejs %>
+
+<script type='text/javascript'> 
+	
+    jQuery.ajax({
+        type: "POST",
+        url: 'http://localhost:8000/ticket_ajax.php',
+        dataType: 'json',
+        data: {functionname: 'queues', arguments: [1, 2]},
+        success: function(obj) {
+            //alert(obj);
+            var $select = $('#down');
+            $.each(obj,function(key, value) 
+            {
+                $select.append('<option value=' + key + '>' + value + '</option>');
+            });
+        }
+        })
+    </script>
+<!--
+<form action="/ticket" id="ticket_form" method="post">
+    <div>
+        <label>Ticket Title:</label>
+        <input type="text" name="ticket_title"/>
+    </div>
+    
+        <input type="submit" value="Submit/Create"/>
+    </div>
+    
+    <div>
+        <label>Queue: </label>
+        <select id="down" name="ticket_queueid">
+            <option value="0">please select..</option>
+        </select>
+    </div>
+    <textarea id="ticket_text" name="ticket_text" form="ticket_form" rows="10"></textarea>
+</form>
+-->
+<div class="container">    
+        <div id="ticketbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Submit Ticket</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Help</a></div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form action="/ticket" id="ticket_form" method="post" role="form">
+
+                        	<div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="login-username" type="text" class="form-control" name="ticket_title" value="" placeholder="Ticket Titel">                                        
+                                    </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+						        <span class="input-group-addon">Queue:&nbsp </span>
+						        <select id="down" name="ticket_queueid">
+						            <option value="0">please select..</option>
+						        </select>
+						    </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <textarea id="ticket_text" name="ticket_text" form="ticket_form" style="width:300px" rows="10" cols="20" placeholder="Ticket Text"></textarea>                                        
+                                    </div>
+                           	<div style="margin-bottom: 25px" class="input-group">
+                            <input type="submit" value="Submit/Create"/>
+                        </div>
+                        	</form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</body>
+</html>

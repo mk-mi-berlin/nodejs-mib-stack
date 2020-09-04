@@ -1,0 +1,35 @@
+2019-09-27T22:22:50.929+0200 I CONTROL  [initandlisten] MongoDB starting : pid=78207 port=27017 dbpath=data/db 64-bit host=kaemimac
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] db version v3.6.4
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] git version: d0181a711f7e7f39e60b5aeb1dc7097bf6ae5856
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 0.9.8zh 14 Jan 2016
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] allocator: system
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] modules: enterprise 
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] build environment:
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2019-09-27T22:22:50.930+0200 I CONTROL  [initandlisten] options: { storage: { dbPath: "data/db" } }
+2019-09-27T22:22:50.932+0200 I -        [initandlisten] Detected data files in data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2019-09-27T22:22:50.932+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7680M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2019-09-27T22:22:51.774+0200 I STORAGE  [initandlisten] WiredTiger message [1569615771:774449][78207:0x114d925c0], txn-recover: Main recovery loop: starting at 5/4992
+2019-09-27T22:22:51.891+0200 I STORAGE  [initandlisten] WiredTiger message [1569615771:891597][78207:0x114d925c0], txn-recover: Recovering log 5 through 6
+2019-09-27T22:22:51.971+0200 I STORAGE  [initandlisten] WiredTiger message [1569615771:971323][78207:0x114d925c0], txn-recover: Recovering log 6 through 6
+2019-09-27T22:22:52.052+0200 I STORAGE  [initandlisten] WiredTiger message [1569615772:52944][78207:0x114d925c0], txn-recover: Set global recovery timestamp: 0
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] 
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] 
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] 
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] 
+2019-09-27T22:22:52.101+0200 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+2019-09-27T22:22:52.121+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'data/db/diagnostic.data'
+2019-09-27T22:22:52.121+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2019-09-27T22:22:52.165+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:63481 #1 (1 connection now open)
+2019-09-27T22:22:52.165+0200 I NETWORK  [listener] connection accepted from 127.0.0.1:63480 #2 (2 connections now open)
+2019-09-28T23:14:08.363+0200 I NETWORK  [conn2] end connection 127.0.0.1:63480 (1 connection now open)
+2019-09-28T23:14:08.363+0200 I NETWORK  [conn1] end connection 127.0.0.1:63481 (0 connections now open)
