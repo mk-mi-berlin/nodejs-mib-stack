@@ -74,14 +74,15 @@ app.use(session({
     store: mongostore
 }));
 
-var promise = mongoose.connect(mongoURI, {useMongoClient: true}).then(function(){
+var promise = mongoose.connect(mongoURI, {useMongoClient: true})
+  .then(function(){
     //connected successfully
     //console.log("connected success. Promise: " + promise.toString());
-}, function(err) {
-    console.error(err);
-    console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
-    process.exit();
-});
+  }, function(err) {
+      console.error(err);
+      console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+      process.exit();
+  });
 /*
 mongoose.connection.on('error', (err) => {
   console.error(err);
@@ -218,7 +219,7 @@ app.route('*').get((req, res, next) => {
   req.prismic.api.getSingle('menu3')
   .then( (menu3) => {
     res.locals.menu3 = menu3;
-    console.log("menu3: " + menu3);
+    console.log("menu3_in*: " + menu3);
     console.dir(menu3);
   });
   console.log("in *********");
@@ -502,7 +503,7 @@ app.get('/',  (req, res, next) => {
   .then(async (pageContent) => {
     if (pageContent) {
       //res.locals.menu3 = await req.prismic.api.getSingle('mainmenu');
-      await getMenu(req, res, next);
+      //await getMenu(req, res, next);
       console.log("res.locals: in getsingle homepage");
       console.dir(res.locals);
       //console.log(JSON.stringify(pageContent));

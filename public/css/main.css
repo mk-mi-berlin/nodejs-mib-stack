@@ -7233,6 +7233,9 @@ body > * {
   div.berlin-div-small {
     display: none !important; } }
 
+a.typewrite {
+  background-color: red; }
+
 footer {
   background-color: #343a40 !important;
   height: 100px; }

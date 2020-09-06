@@ -166,7 +166,9 @@ body > * {
   }
 }
 
-.typewrite {}
+a.typewrite {
+  background-color: red;
+}
 
 footer {
   background-color: #343a40 !important;

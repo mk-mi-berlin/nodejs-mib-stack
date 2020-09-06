@@ -35,6 +35,7 @@ module.exports = function() {
   dest: path.join(__dirname, 'public')
 }));
   app.use(favicon("public/images/punch.png"));
+  
   app.use(logger('dev'));
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
